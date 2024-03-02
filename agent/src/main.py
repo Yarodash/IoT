@@ -45,7 +45,7 @@ def publish(client, topic, topic_parking, datasource, delay):
         msg = AggregatedDataSchema().dumps(data)
         send(client, topic, msg)
 
-        parking = datasource.read2()
+        parking = datasource.read_parking()
         msg_parking = ParkingSchema().dumps(parking)
         send(client, topic_parking, msg_parking)
 

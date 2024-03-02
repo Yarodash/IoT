@@ -27,7 +27,7 @@ class FileDatasource:
             timestamp=datetime.now()
         )
 
-    def read2(self) -> Parking:
+    def read_parking(self) -> Parking:
         if self.parking_data is None:
             raise Exception("Datasources are not started")
 
@@ -58,8 +58,6 @@ class CSV:
     def start(self):
         self.file = open(self.filename, 'r')
         self.reader = DictReader(self.file)
-
-        print("Start reading", self.filename, self.file)
 
     def read(self):
         try:
