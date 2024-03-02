@@ -1,0 +1,6 @@
+# Ignore everything
+*
+
+# Include the src folder
+!src/
+!requirements.txt

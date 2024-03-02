@@ -1,0 +1,4 @@
+.idea
+
+docker/mosquitto/log/
+docker/mosquitto/data/
