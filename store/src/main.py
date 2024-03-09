@@ -67,7 +67,10 @@ async def create_processed_agent_data(data: list[ProcessedAgentData]):
 @app.get("/processed_agent_data/{processed_agent_data_id}", response_model=ProcessedAgentDataInDB)
 def read_processed_agent_data(processed_agent_data_id: int):
     with Session() as session:
-        item = session.query(ProcessedAgentDataSQL).filter(ProcessedAgentDataSQL.id == processed_agent_data_id).first()
+        item = session\
+            .query(ProcessedAgentDataSQL)\
+            .filter(ProcessedAgentDataSQL.id == processed_agent_data_id)\
+            .first()
 
         if item is None:
             raise HTTPException(status_code=404, detail="Data not found")
@@ -84,7 +87,10 @@ def list_processed_agent_data():
 @app.put("/processed_agent_data/{processed_agent_data_id}")
 def update_processed_agent_data(processed_agent_data_id: int, data: ProcessedAgentData):
     with Session() as session:
-        item = session.query(ProcessedAgentDataSQL).filter(ProcessedAgentDataSQL.id == processed_agent_data_id).first()
+        item = session\
+            .query(ProcessedAgentDataSQL)\
+            .filter(ProcessedAgentDataSQL.id == processed_agent_data_id)\
+            .first()
 
         if item is None:
             raise HTTPException(status_code=404, detail="Data not found")
@@ -106,7 +112,10 @@ def update_processed_agent_data(processed_agent_data_id: int, data: ProcessedAge
 @app.delete("/processed_agent_data/{processed_agent_data_id}", response_model=ProcessedAgentDataInDB)
 def delete_processed_agent_data(processed_agent_data_id: int):
     with Session() as session:
-        item = session.query(ProcessedAgentDataSQL).filter(ProcessedAgentDataSQL.id == processed_agent_data_id).first()
+        item = session\
+            .query(ProcessedAgentDataSQL)\
+            .filter(ProcessedAgentDataSQL.id == processed_agent_data_id)\
+            .first()
 
         if item is None:
             raise HTTPException(status_code=404, detail="Data not found")
