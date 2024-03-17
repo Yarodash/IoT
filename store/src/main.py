@@ -86,6 +86,7 @@ def list_processed_agent_data():
 
 @app.put("/processed_agent_data/{processed_agent_data_id}")
 def update_processed_agent_data(processed_agent_data_id: int, data: ProcessedAgentData):
+    print(data)
     with Session() as session:
         item = session\
             .query(ProcessedAgentDataSQL)\
